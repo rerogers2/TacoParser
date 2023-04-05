@@ -46,8 +46,8 @@ namespace LoggingKata
             point.Latitude = latitude;
             point.Longitude = longitude;
 
-            tacoBell.Name = name;
-            tacoBell.Location = point;
+            tacoBell.Name = name; // string 
+            tacoBell.Location = point; // point
 
 
             // Then, return the instance of your TacoBell class

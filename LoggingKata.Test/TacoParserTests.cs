@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using Xunit;
 
 namespace LoggingKata.Test
@@ -33,10 +34,12 @@ namespace LoggingKata.Test
             var tacoParserLong = new TacoParser();
 
             //Act
-            var actual = tacoParserLong.Parse(line).Location.Longitude;
+            // var actual = tacoParserLong.Parse(line).Location.Longitude; <- this could also work
+            var actual = tacoParserLong.Parse(line);
 
             //Assert
-            Assert.Equal(expected, actual);
+            // Assert.Equal(expected, actual); <- with this
+            Assert.Equal(expected, actual.Location.Longitude);
         }
 
 
@@ -49,10 +52,10 @@ namespace LoggingKata.Test
             var tacoParserLat = new TacoParser();
 
             //Act
-            var actual = tacoParserLat.Parse(line).Location.Latitude;
+            var actual = tacoParserLat.Parse(line);
 
             //Assert
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual.Location.Latitude);
         }
 
     }
