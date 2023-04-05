@@ -62,20 +62,19 @@ namespace LoggingKata
                 {
                     var locB = locations[j]; // destination
                     GeoCoordinate corB = new GeoCoordinate(locB.Location.Latitude, locB.Location.Longitude);
-                    double getDistance = corA.GetDistanceTo(corB);
+                    double newDistance = corA.GetDistanceTo(corB);
 
-                    if (getDistance > distance)
+                    if (newDistance > distance)
                     {
                         tacoOne = locA;
                         tacoTwo = locB;
-                        distance = getDistance;
+                        distance = newDistance;
                     }
                 }
             }
 
-            Console.WriteLine($"Location 1: {tacoOne.Name}");
-            Console.WriteLine($"Location 2: {tacoTwo.Name}");
-            Console.WriteLine($"The distance between them is: {distance}");
+            logger.LogInfo($"\nLocation 1: {tacoOne.Name}\nLocation 2: {tacoTwo.Name}\nDistance: {distance}");
+            
             // Create a new corA Coordinate with your locA's lat and long
 
             // Now, do another loop on the locations with the scope of your first loop, so you can grab the "destination" location (perhaps: `locB`)
